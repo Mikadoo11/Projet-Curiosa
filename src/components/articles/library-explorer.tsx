@@ -36,7 +36,7 @@ export function LibraryExplorer({ articles, domains, initialQuery = "" }: { arti
         <button className={`filter-chip${activeDomain === "tous" ? " is-active" : ""}`} type="button" onClick={() => setActiveDomain("tous")}>Tous les domaines <span>{articles.length}</span></button>
         {domains.map((domain) => <button key={domain.slug} className={`filter-chip${activeDomain === domain.slug ? " is-active" : ""}`} type="button" onClick={() => setActiveDomain(domain.slug)}><DomainSymbol name={domain.icon} size={15} />{domain.title}</button>)}
       </div>
-      <div className="results-line"><span><strong>{filtered.length}</strong> {filtered.length > 1 ? "fiches à explorer" : "fiche à explorer"}</span><span className="results-line__hint">Une bibliothèque qui s'enrichit au fil du temps</span></div>
+      <div className="results-line"><span><strong>{filtered.length}</strong> {filtered.length > 1 ? "fiches à explorer" : "fiche à explorer"}</span><span className="results-line__hint">Une bibliothèque qui s&apos;enrichit au fil du temps</span></div>
       {filtered.length ? <div className="article-grid">{filtered.map((article) => <LibraryRowCard key={article._id} article={article} />)}</div> : <div className="empty-state"><span className="empty-state__icon"><Search size={24} /></span><h2>Aucune fiche trouvée</h2><p>Essaie un autre terme ou sélectionne un autre domaine.</p><button type="button" className="button button--secondary" onClick={() => { setQuery(""); setActiveDomain("tous"); }}>Réinitialiser les filtres</button></div>}
     </div>
   );

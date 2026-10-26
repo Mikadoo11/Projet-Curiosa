@@ -11,9 +11,12 @@ const environmentSchema = z.object({
   NEXT_PUBLIC_SANITY_PROJECT_ID: optionalNonEmptyString,
   NEXT_PUBLIC_SANITY_DATASET: z.string().trim().min(1).default("production"),
   SANITY_API_READ_TOKEN: optionalNonEmptyString,
-  OPENAI_API_KEY: optionalNonEmptyString,
-  OPENAI_MODEL: z.string().trim().min(1).default("gpt-5-mini"),
-  TRIGGER_SECRET_KEY: optionalNonEmptyString,
+  SANITY_API_WRITE_TOKEN: optionalNonEmptyString,
+  GEMINI_API_KEY: optionalNonEmptyString,
+  GEMINI_PRIMARY_MODEL: z.string().trim().min(1).default("gemini-3.8-flash"),
+  GEMINI_FALLBACK_MODEL: z.string().trim().min(1).default("gemini-3.5-flash-lite"),
+  GENERATION_ENABLED: z.enum(["true", "false"]).default("false"),
+  GENERATION_DAILY_TARGET: z.coerce.number().int().min(1).max(5).default(5),
   CRON_SECRET: optionalNonEmptyString,
 });
 
